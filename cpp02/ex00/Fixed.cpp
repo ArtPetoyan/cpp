@@ -35,5 +35,5 @@ int Fixed::getRawBits( void ) const
 
 Fixed::~Fixed()
 {
-	std::cout<<"Class ended"<<std::endl;
+	std::cout<<"Destructor called"<<std::endl;
 }

@@ -3,12 +3,13 @@
 Fixed::Fixed(const int fix)
 {
 	std::cout<<"Default constructor called"<<std::endl;
+	std::cout<<"Int constructor called"<<std::endl;
 	this->fix_point = fix << bit_num;
 }
 
 Fixed::Fixed(const float fFix)
 {
-	std::cout<<"Default constructor called"<<std::endl;
+	std::cout<<"Float constructor called"<<std::endl;
 	this->fix_point = roundf(fFix * (1 << bit_num));
 }
 
@@ -38,6 +39,22 @@ int Fixed::getRawBits( void ) const
 	std::cout<<"getRawBits member function called"<<std::endl;
 	return this->fix_point;
 }
+
+float Fixed::toFloat( void ) const
+{
+	return fix_point / (1 << bit_num);
+}
+
+int Fixed::toInt( void ) const
+{
+	return fix_point / (1 << bit_num);
+}
+
+std::ostream& Fixed::operator<<(std::ostream& out, const Fixed& f) {
+    out << f.toFloat();
+    return out;
+}
+
 
 Fixed::~Fixed()
 {

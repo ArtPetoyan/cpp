@@ -34,86 +34,94 @@ Fixed& Fixed::operator=(const Fixed& op)
 	return *this;
 }
 
-bool Fixed::operator<(const Fixed& op)
+bool Fixed::operator<(const Fixed& op) const
 {
 	std::cout<<"Assignment operator called (<)"<<std::endl;
 	return (this->fix_point < op.fix_point);
 }
 
-bool Fixed::operator>(const Fixed& op)
+bool Fixed::operator>(const Fixed& op) const
 {
 	std::cout<<"Assignment operator called (>)"<<std::endl;
 	return (this->fix_point > op.fix_point);
 }
 
-bool Fixed::operator>=(const Fixed& op)
+bool Fixed::operator>=(const Fixed& op) const
 {
 	std::cout<<"Assignment operator called (>=)"<<std::endl;
 	return (this->fix_point >= op.fix_point);
 }
 
-bool Fixed::operator<=(const Fixed& op)
+bool Fixed::operator<=(const Fixed& op) const
 {
 	std::cout<<"Assignment operator called (<=)"<<std::endl;
 	return (this->fix_point <= op.fix_point);
 }
 
-bool Fixed::operator==(const Fixed& op)
+bool Fixed::operator==(const Fixed& op) const
 {
 	std::cout<<"Assignment operator called (==)"<<std::endl;
 	return (this->fix_point == op.fix_point);
 }
 
-bool Fixed::operator!=(const Fixed& op)
+bool Fixed::operator!=(const Fixed& op) const
 {
 	std::cout<<"Assignment operator called (!=)"<<std::endl;
 	return (this->fix_point != op.fix_point);
 }
 
-int Fixed::operator+(const Fixed& op)
+Fixed Fixed::operator+(const Fixed& op) const
 {
 	std::cout<<"Assignment operator called (+)"<<std::endl;
-	return fix_point += op.fix_point;
+	Fixed a = Fixed(this->toFloat() + op.toFloat());
+	return a;
 }
 
-int Fixed::operator-(const Fixed& op)
+Fixed Fixed::operator-(const Fixed& op) const
 {
 	std::cout<<"Assignment operator called (-)"<<std::endl;
-	return fix_point -= op.fix_point;
+	Fixed a = Fixed(this->toFloat() - op.toFloat());
+	return a;
 }
 
-int Fixed::operator*(const Fixed& op)
+Fixed Fixed::operator*(const Fixed& op) const
 {
 	std::cout<<"Assignment operator called (*)"<<std::endl;
-	return fix_point *= op.fix_point;
+	Fixed a = Fixed(this->toFloat() * op.toFloat());
+	return a;
 }
 
-int Fixed::operator/(const Fixed& op)
+Fixed Fixed::operator/(const Fixed& op) const
 {
 	std::cout<<"Assignment operator called (/)"<<std::endl;
-	return fix_point /= op.fix_point;
+	Fixed a = Fixed(this->toFloat() / op.toFloat());
+	return a;
 }
 
 Fixed& Fixed::operator++()
 {
+	fix_point += 1;
 	return *this;
 }
 
-Fixed Fixed::operator++(int a)
+Fixed Fixed::operator++(int)
 {
-	fix_point += a;
-	return *this;
+	Fixed a = *this;
+	fix_point += 1;
+	return a;
 }
 
 Fixed& Fixed::operator--()
 {
+	fix_point -= 1;
 	return *this;
 }
 
-Fixed Fixed::operator--(int a)
+Fixed Fixed::operator--(int)
 {
-	fix_point -= a;
-	return *this;
+	Fixed a = *this;
+	fix_point -= 1;
+	return a;
 }
 
 void Fixed::setRawBits(int new_fix)
@@ -143,6 +151,33 @@ std::ostream& operator<<(std::ostream& out, const Fixed& f) {
     return out;
 }
 
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
 
 Fixed::~Fixed()
 {

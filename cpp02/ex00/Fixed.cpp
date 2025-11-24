@@ -16,9 +16,7 @@ Fixed& Fixed::operator=(const Fixed& op)
 {
 	std::cout<<"Copy assignment operator called"<<std::endl;
 	if (this != &op)
-	{
 		fix_point = op.fix_point;
-	}
 	return *this;
 }
 

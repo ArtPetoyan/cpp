@@ -14,20 +14,26 @@ void PhoneBook::adding()
 	std::string number;
 	std::string secret;
 
-	std::cout<< "First name is ";
+	if (!std::cin.eof())
+		std::cout<< "First name is ";
 	std::getline(std::cin, first);
-	std::cout<< "Last Name is ";
+	if (!std::cin.eof())
+		std::cout<< "Last Name is ";
 	std::getline(std::cin, last);
-	std::cout<< "Nickname is ";
+	if (!std::cin.eof())
+		std::cout<< "Nickname is ";
 	std::getline(std::cin, nick);
-	std::cout<< "Phone number is ";
+	if (!std::cin.eof())
+		std::cout<< "Phone number is ";
 	std::getline(std::cin, number);
-	std::cout<< "Darkest secret is ";
+	if (!std::cin.eof())
+		std::cout<< "Darkest secret is ";
 	std::getline(std::cin, secret);
 
 	if (first.empty() || last.empty() || nick.empty() || number.empty() || secret.empty())
 	{
-		std::cout<< "Please give all need information!"<< std::endl;
+		if (!std::cin.eof())
+			std::cout<< "Please give all need information!"<< std::endl;
 		return ;
 	}
 	contacts[i].create(first, last, nick, number, secret);

@@ -7,7 +7,8 @@ int main()
 
 	while (1)
 	{
-		std::cout << "Please, enter valid command (ADD, SEARCH, EXIT)\n";
+		if (!std::cin.eof())
+			std::cout << "Please, enter valid command (ADD, SEARCH, EXIT)\n";
 		if (!std::getline(std::cin, command) || !std::cin)
 			break ;
 		if (command == "ADD")
@@ -19,6 +20,7 @@ int main()
 		else
 			std::cout<< "Command not found!"<< std::endl;
 	}
-	std::cout<< "Bye!"<< std::endl;
+	if (!std::cin.eof())
+		std::cout<< "Bye!"<< std::endl;
 	return (0);
 }

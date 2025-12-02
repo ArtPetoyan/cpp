@@ -1,5 +1,4 @@
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#pragma once
 
 #include <iostream>
 #include <iomanip>
@@ -21,5 +20,3 @@ public:
 	std::string getLastName();
 	std::string getNickname();
 };
-
-#endif

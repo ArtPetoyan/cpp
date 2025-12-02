@@ -4,13 +4,13 @@ ClapTrap::ClapTrap(std::string name) : name(name)
 {
 	this->hit = 10;
 	this->energy = 10;
-	this->damage = 3;
-	std::cout<<"Default constructor called"<<std::endl;
+	this->damage = 0;
+	std::cout<<"ClapTrap constructor called"<<std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& cp)
 {
-	std::cout<<"Copy constructor called"<<std::endl;
+	std::cout<<"ClapTrap copy constructor called"<<std::endl;
 	name = cp.name;
 	hit = cp.hit;
 	energy = cp.energy;
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap(const ClapTrap& cp)
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& op)
 {
-	std::cout<<"Copy assignment operator called"<<std::endl;
+	std::cout<<"ClapTrap copy assignment operator called"<<std::endl;
 	if (this != &op)
 	{
 		name = op.name;
@@ -91,5 +91,5 @@ int ClapTrap::getEnergy() const
 
 ClapTrap::~ClapTrap()
 {
-	std::cout<<"Destructor called"<<std::endl;
+	std::cout<<"ClapTrap destructor called"<<std::endl;
 }

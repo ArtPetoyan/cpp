@@ -11,7 +11,6 @@ void Contact::create(std::string first, std::string last, std::string nick, std:
 	this->darkestSecret = secret;
 }
 
-
 void Contact::displayFull()
 {
 	std::cout<<"First Name: "<< this->firstName << std::endl;

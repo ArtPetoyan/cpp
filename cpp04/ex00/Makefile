@@ -1,14 +1,14 @@
-NAME = miniWar
+NAME = zoo
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp ClapTrap.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) 
+$(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp Makefile
